@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cache.NET", "Cache.NET\Cache.NET.csproj", "{5E7B04AD-4586-42FE-9953-7856A87A47D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cache.NET.ConsoleApp", "Cache.NET.ConsoleApp\Cache.NET.ConsoleApp.csproj", "{D3D72520-5DF6-409C-9723-59DEC0A144AF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5E7B04AD-4586-42FE-9953-7856A87A47D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E7B04AD-4586-42FE-9953-7856A87A47D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E7B04AD-4586-42FE-9953-7856A87A47D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E7B04AD-4586-42FE-9953-7856A87A47D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3D72520-5DF6-409C-9723-59DEC0A144AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3D72520-5DF6-409C-9723-59DEC0A144AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3D72520-5DF6-409C-9723-59DEC0A144AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3D72520-5DF6-409C-9723-59DEC0A144AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DD234B73-CDCD-4F74-93C3-6AC45D4C4583}
+	EndGlobalSection
+EndGlobal
