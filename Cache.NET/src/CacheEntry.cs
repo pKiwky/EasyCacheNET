@@ -5,8 +5,10 @@
 		public object Value;
 		public DateTimeOffset ExpiresAt;
 
+		public CacheEntry() { }
+
 		public CacheEntry(string key, object value, DateTimeOffset expiresAt) {
-			Key = key;
+			Key = Key;
 			Value = value;
 			ExpiresAt = expiresAt;
 		}

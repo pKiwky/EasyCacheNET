@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Cache.NET.Memory\Cache.NET.Memory.csproj" />
+  </ItemGroup>
+
 </Project>
