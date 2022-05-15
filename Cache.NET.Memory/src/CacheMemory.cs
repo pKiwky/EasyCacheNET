@@ -13,15 +13,23 @@ namespace Cache.NET.Memory {
 		}
 
 		public void Add<T>(string key, T value, TimeSpan duration) {
-			AddInternal(key, value, duration, false);
+			bool result = AddInternal(key, value, duration, false);
 
 #if DEBUG
-			Console.WriteLine("[Cache {0}] Add Key: {1}, Duration: {2}s", DateTimeOffset.UtcNow.UtcDateTime, key, duration.TotalSeconds);
+			if (result == true) {
+				Console.WriteLine("[Cache {0}] Add Key: {1}, Duration: {2}s", DateTimeOffset.UtcNow.UtcDateTime, key, duration.TotalSeconds);
+			}
 #endif
 		}
 
 		public void Set<T>(string key, T value, TimeSpan duration) {
-			throw new NotImplementedException();
+			bool result = AddInternal(key, value, duration, true);
+
+#if DEBUG
+			if (result == true) {
+				Console.WriteLine("[Cache {0}] Set Key: {1}, Duration: {2}s", DateTimeOffset.UtcNow.UtcDateTime, key, duration.TotalSeconds);
+			}
+#endif
 		}
 
 		public CacheEntry Get<T>(string key) {
@@ -29,7 +37,13 @@ namespace Cache.NET.Memory {
 		}
 
 		public void Remove(string key) {
-			throw new NotImplementedException();
+			bool result = _cache.Remove(key, out var _);
+
+#if DEBUG
+			if (result == true) {
+				Console.WriteLine("[Cache {0}] Remove Key: {1}", DateTimeOffset.UtcNow.UtcDateTime, key);
+			}
+#endif
 		}
 
 		/// <summary>
