@@ -1,7 +1,11 @@
 ﻿using System.Collections.Concurrent;
++
 namespace Cache.NET.Memory {
 
 	public class CacheMemory : ICacheMemory {
+		public event OnCacheEntryAddDelegate OnCacheEntryAdd;
+		public event OnCacheEntryRemoveDelegate OnCacheEntryRemove;
+
 		private readonly CacheMemoryOptions _options;
 		private DateTimeOffset _lastTimeScan;
 		private ConcurrentDictionary<string, CacheEntry> _cache;
@@ -14,36 +18,27 @@ namespace Cache.NET.Memory {
 
 		public void Add<T>(string key, T value, TimeSpan duration) {
 			bool result = AddInternal(key, value, duration, false);
-
-#if DEBUG
-			if (result == true) {
-				Console.WriteLine("[Cache {0}] Add Key: {1}, Duration: {2}s", DateTimeOffset.UtcNow.UtcDateTime, key, duration.TotalSeconds);
-			}
-#endif
 		}
 
 		public void Set<T>(string key, T value, TimeSpan duration) {
 			bool result = AddInternal(key, value, duration, true);
-
-#if DEBUG
-			if (result == true) {
-				Console.WriteLine("[Cache {0}] Set Key: {1}, Duration: {2}s", DateTimeOffset.UtcNow.UtcDateTime, key, duration.TotalSeconds);
-			}
-#endif
 		}
 
 		public CacheEntry Get<T>(string key) {
-			throw new NotImplementedException();
+			if (_cache.TryGetValue(key, out var cacheEntry) == false) {
+				return null;
+			}
+
+			if (cacheEntry.ExpiresAt < DateTimeOffset.UtcNow) {
+				RemoveInternal(key, true);
+				return null;
+			}
+
+			return cacheEntry;
 		}
 
 		public void Remove(string key) {
-			bool result = _cache.Remove(key, out var _);
-
-#if DEBUG
-			if (result == true) {
-				Console.WriteLine("[Cache {0}] Remove Key: {1}", DateTimeOffset.UtcNow.UtcDateTime, key);
-			}
-#endif
+			RemoveInternal(key, false);
 		}
 
 		/// <summary>
@@ -75,8 +70,22 @@ namespace Cache.NET.Memory {
 				}
 			}
 
+			OnCacheEntryAdd?.Invoke(cacheEntry, replace);
 			ScanCacheKeys();
 			return true;
+		}
+
+		/// <summary>
+		/// Remove cache entry from cache by key.
+		/// </summary>
+		/// <param name="key"></param>
+		/// <param name="expired"></param>
+		/// <returns></returns>
+		private bool RemoveInternal(string key, bool expired) {
+			bool result = _cache.Remove(key, out var cacheEntry);
+
+			OnCacheEntryRemove?.Invoke(cacheEntry, expired);
+			return result;
 		}
 
 		/// <summary>
@@ -93,12 +102,11 @@ namespace Cache.NET.Memory {
 					var expiredCache = _cache.Values.Where(x => x.ExpiresAt < currentTime);
 
 					foreach (var entry in expiredCache) {
-						Remove(entry.Key);
+						RemoveInternal(entry.Key, true);
 					}
 				});
 			}
 		}
-
 
 	}
 
