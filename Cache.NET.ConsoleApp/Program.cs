@@ -1,5 +1,4 @@
-﻿using Cache.NET;
-using Cache.NET.Memory;
+﻿using Cache.NET.Memory;
 
 class Program {
 	public static void Main(String[] args) {

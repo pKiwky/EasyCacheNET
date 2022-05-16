@@ -1,5 +1,5 @@
 ﻿using System.Collections.Concurrent;
-+
+
 namespace Cache.NET.Memory {
 
 	public class CacheMemory : ICacheMemory {
