@@ -1,4 +1,4 @@
-﻿namespace Cache.NET.Memory {
+﻿namespace EasyCacheNET.Memory {
 
 	public class CacheMemoryOptions {
 		/// <summary>

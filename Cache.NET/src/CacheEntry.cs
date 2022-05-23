@@ -1,4 +1,4 @@
-﻿namespace Cache.NET {
+﻿namespace EasyCacheNET {
 
 	public class CacheEntry {
 		public string Key;

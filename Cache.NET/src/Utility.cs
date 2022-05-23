@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Cache.NET {
+namespace EasyCacheNET {
 
 	public static class Utility {
 		public static DateTimeOffset IncrementDate(TimeSpan duration) {

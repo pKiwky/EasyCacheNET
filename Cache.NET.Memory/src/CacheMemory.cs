@@ -1,6 +1,6 @@
 ﻿using System.Collections.Concurrent;
 
-namespace Cache.NET.Memory {
+namespace EasyCacheNET.Memory {
 
 	public class CacheMemory : ICacheMemory {
 		public event OnCacheEntryAddDelegate OnCacheEntryAdd;
@@ -24,17 +24,17 @@ namespace Cache.NET.Memory {
 			bool result = AddInternal(key, value, duration, true);
 		}
 
-		public CacheEntry Get<T>(string key) {
+		public T Get<T>(string key) {
 			if (_cache.TryGetValue(key, out var cacheEntry) == false) {
-				return null;
+				return default(T);
 			}
 
 			if (cacheEntry.ExpiresAt < DateTimeOffset.UtcNow) {
 				RemoveInternal(key, true);
-				return null;
+				return default(T);
 			}
 
-			return cacheEntry;
+			return (T)Convert.ChangeType(cacheEntry.Value, typeof(T));
 		}
 
 		public void Remove(string key) {

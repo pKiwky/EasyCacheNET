@@ -1,4 +1,4 @@
-﻿namespace Cache.NET {
+﻿namespace EasyCacheNET {
 	/// <summary>
 	/// Event fired when new entry are added in cache.
 	/// </summary>
@@ -20,7 +20,7 @@
 		void Add<T>(string key, T value, TimeSpan duration);
 		void Set<T>(string key, T value, TimeSpan duration);
 		void Remove(string key);
-		CacheEntry Get<T>(string key);
+		T Get<T>(string key);
 	}
 
 }

@@ -1,4 +1,4 @@
-﻿using Cache.NET.Memory;
+﻿using EasyCacheNET.Memory;
 
 class Program {
 	public static void Main(String[] args) {
@@ -23,7 +23,7 @@ class Program {
 
 		while (true) {
 			string value = Console.ReadLine();
-			Console.WriteLine("Cache value '{0}' = {1}", value, c.Get<string>(value)?.Value);
+			Console.WriteLine("Cache value '{0}' = {1}", value, c.Get<string>(value));
 		}
 	}
 }

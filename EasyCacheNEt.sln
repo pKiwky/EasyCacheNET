@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cache.NET", "Cache.NET\Cache.NET.csproj", "{5E7B04AD-4586-42FE-9953-7856A87A47D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyCacheNET", "Cache.NET\EasyCacheNET.csproj", "{5E7B04AD-4586-42FE-9953-7856A87A47D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cache.NET.ConsoleApp", "Cache.NET.ConsoleApp\Cache.NET.ConsoleApp.csproj", "{D3D72520-5DF6-409C-9723-59DEC0A144AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyCacheNET.ConsoleApp", "Cache.NET.ConsoleApp\EasyCacheNET.ConsoleApp.csproj", "{D3D72520-5DF6-409C-9723-59DEC0A144AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cache.NET.Memory", "Cache.NET.Memory\Cache.NET.Memory.csproj", "{3E7FAF6B-C0A7-4506-B670-B39164BBE981}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyCacheNET.Memory", "Cache.NET.Memory\EasyCacheNET.Memory.csproj", "{3E7FAF6B-C0A7-4506-B670-B39164BBE981}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
