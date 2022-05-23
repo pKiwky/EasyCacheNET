@@ -1,5 +1,9 @@
 # EasyCacheNET
 
+``CORE: Install-Package EasyCacheNET -Version 1.0.1``
+
+Cache options:
+``MEMORY: Install-Package EasyCacheNET.Memory -Version 1.0.0``
 
 ```c#
 using EasyCacheNET.Memory;
